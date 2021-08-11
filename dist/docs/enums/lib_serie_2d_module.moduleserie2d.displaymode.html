@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Operations | @youwol/flux-plotly</title>
+	<title>DisplayMode | @youwol/flux-plotly</title>
 	<meta name="description" content="Documentation for @youwol/flux-plotly">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,16 +55,16 @@
 					<a href="../modules.html">@youwol/flux-plotly</a>
 				</li>
 				<li>
-					<a href="../modules/lib_simple_module_module.html">lib/simple-module.module</a>
+					<a href="../modules/lib_serie_2d_module.html">lib/serie-2d.module</a>
 				</li>
 				<li>
-					<a href="../modules/lib_simple_module_module.simplemodule.html">SimpleModule</a>
+					<a href="../modules/lib_serie_2d_module.moduleserie2d.html">ModuleSerie2D</a>
 				</li>
 				<li>
-					<a href="lib_simple_module_module.simplemodule.operations.html">Operations</a>
+					<a href="lib_serie_2d_module.moduleserie2d.displaymode.html">DisplayMode</a>
 				</li>
 			</ul>
-			<h1>Enumeration Operations</h1>
+			<h1>Enumeration DisplayMode</h1>
 		</div>
 	</div>
 </header>
@@ -74,8 +74,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>These are the two operations implemented: you can add additional items here and
-						define their implementation in the <a href="../modules/lib_simple_module_module.simplemodule.html#operationsfactory">operationsFactory</a> variable.</p>
+						<p>The display mode that can be used in plotly</p>
 					</div>
 				</div>
 			</section>
@@ -86,8 +85,9 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="lib_simple_module_module.simplemodule.operations.html#addition" class="tsd-kind-icon">ADDITION</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="lib_simple_module_module.simplemodule.operations.html#multiplication" class="tsd-kind-icon">MULTIPLICATION</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="lib_serie_2d_module.moduleserie2d.displaymode.html#lines" class="tsd-kind-icon">Lines</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="lib_serie_2d_module.moduleserie2d.displaymode.html#markers" class="tsd-kind-icon">Markers</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="lib_serie_2d_module.moduleserie2d.displaymode.html#markerslines" class="tsd-kind-icon">Markers<wbr>Lines</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,22 +96,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="addition" class="tsd-anchor"></a>
-					<h3>ADDITION</h3>
-					<div class="tsd-signature tsd-kind-icon">ADDITION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;addition&quot;</span></div>
+					<a name="lines" class="tsd-anchor"></a>
+					<h3>Lines</h3>
+					<div class="tsd-signature tsd-kind-icon">Lines<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;lines&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/lib/simple-module.module.ts:45</li>
+							<li>Defined in src/lib/serie-2d.module.ts:81</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="multiplication" class="tsd-anchor"></a>
-					<h3>MULTIPLICATION</h3>
-					<div class="tsd-signature tsd-kind-icon">MULTIPLICATION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;multiplication&quot;</span></div>
+					<a name="markers" class="tsd-anchor"></a>
+					<h3>Markers</h3>
+					<div class="tsd-signature tsd-kind-icon">Markers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;markers&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/lib/simple-module.module.ts:46</li>
+							<li>Defined in src/lib/serie-2d.module.ts:80</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="markerslines" class="tsd-anchor"></a>
+					<h3>Markers<wbr>Lines</h3>
+					<div class="tsd-signature tsd-kind-icon">Markers<wbr>Lines<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;lines+markers&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in src/lib/serie-2d.module.ts:82</li>
 						</ul>
 					</aside>
 				</section>
@@ -130,35 +140,26 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum tsd-parent-kind-namespace">
-						<a href="lib_simple_module_module.simplemodule.operations.html" class="tsd-kind-icon">Operations</a>
+						<a href="lib_serie_2d_module.moduleserie2d.displaymode.html" class="tsd-kind-icon">Display<wbr>Mode</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="lib_simple_module_module.simplemodule.operations.html#addition" class="tsd-kind-icon">ADDITION</a>
+								<a href="lib_serie_2d_module.moduleserie2d.displaymode.html#lines" class="tsd-kind-icon">Lines</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="lib_simple_module_module.simplemodule.operations.html#multiplication" class="tsd-kind-icon">MULTIPLICATION</a>
+								<a href="lib_serie_2d_module.moduleserie2d.displaymode.html#markers" class="tsd-kind-icon">Markers</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="lib_serie_2d_module.moduleserie2d.displaymode.html#markerslines" class="tsd-kind-icon">Markers<wbr>Lines</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
-						<a href="../classes/lib_simple_module_module.simplemodule.module.html" class="tsd-kind-icon">Module</a>
+						<a href="../classes/lib_serie_2d_module.moduleserie2d.module.html" class="tsd-kind-icon">Module</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
-						<a href="../classes/lib_simple_module_module.simplemodule.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
-						<a href="../modules/lib_simple_module_module.simplemodule.html#operationsfactory" class="tsd-kind-icon">operations<wbr>Factory</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
-						<a href="../modules/lib_simple_module_module.simplemodule.html#permissivenumber" class="tsd-kind-icon">permissive<wbr>Number</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
-						<a href="../modules/lib_simple_module_module.simplemodule.html#straightnumber" class="tsd-kind-icon">straight<wbr>Number</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-namespace">
-						<a href="../modules/lib_simple_module_module.simplemodule.html#renderhtmlelement" class="tsd-kind-icon">render<wbr>Html<wbr>Element</a>
+						<a href="../classes/lib_serie_2d_module.moduleserie2d.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a>
 					</li>
 				</ul>
 			</nav>
@@ -173,6 +174,9 @@
 				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 			</ul>
 		</div>
 	</div>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>lib/main | @youwol/flux-plotly</title>
+	<title>ModuleScatterPlot | @youwol/flux-plotly</title>
 	<meta name="description" content="Documentation for @youwol/flux-plotly">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,72 +55,72 @@
 					<a href="../modules.html">@youwol/flux-plotly</a>
 				</li>
 				<li>
-					<a href="lib_main.html">lib/main</a>
+					<a href="lib_scatter_plot_module.html">lib/scatter-plot.module</a>
+				</li>
+				<li>
+					<a href="lib_scatter_plot_module.modulescatterplot.html">ModuleScatterPlot</a>
 				</li>
 			</ul>
-			<h1>Module lib/main</h1>
+			<h1>Namespace ModuleScatterPlot</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<a href="#presentation" id="presentation" style="color: inherit; text-decoration: none;">
+							<h2>Presentation</h2>
+						</a>
+					</div>
+					<p>The scatter plot module is a <em>scene</em> for <a href="lib_serie_2d_module.moduleserie2d.html">2d series</a>:
+					it&#39;s purpose is to display 2d series that reach the input of the module over time.</p>
+					<a href="#typical-usage" id="typical-usage" style="color: inherit; text-decoration: none;">
+						<h2>Typical usage</h2>
+					</a>
+					<p>Provide 2D series constructed from the <a href="lib_serie_2d_module.moduleserie2d.html">2d serie module</a> to the input of the module.</p>
+					<blockquote>
+						<p>👾 2D series have a <strong>serieId</strong> property defined in the configuration.
+							t is an important field to consider when multiple series will be displayed
+						in a viewer: only the latest object received for a particular <strong>serieId</strong> is displayed.</p>
+					</blockquote>
+					<p>The property <strong>layoutOptions</strong> of the configuration allows to define layout, titles, margins, etc,
+					see <a href="../classes/lib_scatter_plot_module.modulescatterplot.persistentdata.html">ModuleScatterPlot.PersistentData</a>.</p>
+					<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+						<h2>Example</h2>
+					</a>
+					<p>The following example illustrates a simple use of the module:</p>
+					<iframe
+					title="Simple example"
+					width="100%"
+					height="500px"
+					src="/ui/flux-runner/?id=b6f7ae4b-c106-457c-9de1-2c94aeea5986">
+					</iframe>
+					<p>The underlying workflow can be accessed <a href="/ui/flux-builder/?id=b6f7ae4b-c106-457c-9de1-2c94aeea5986">here</a>.</p>
+					<a href="#resources" id="resources" style="color: inherit; text-decoration: none;">
+						<h2>Resources</h2>
+					</a>
+					<p>Various resources:</p>
+					<ul>
+						<li>   <a href="https://plotly.com/javascript/">plotly</a>: underlying rendering library</li>
+						<li>   <a href="https://plotly.com/javascript/reference/layout/">layout</a>: options available to style the graph&#39;s layout</li>
+					</ul>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Variables</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="lib_main.html#pack" class="tsd-kind-icon">pack</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="lib_main.html#install" class="tsd-kind-icon">install</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-namespace"><a href="../classes/lib_scatter_plot_module.modulescatterplot.module.html" class="tsd-kind-icon">Module</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-namespace"><a href="../classes/lib_scatter_plot_module.modulescatterplot.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a></li>
 							</ul>
 						</section>
 					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="pack" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagLet">Let</span> pack</h3>
-					<div class="tsd-signature tsd-kind-icon">pack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FluxPack</span><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/youwol/flux-plotly/blob/e88aad3/src/lib/main.ts#L9">src/lib/main.ts:9</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="install" class="tsd-anchor"></a>
-					<h3>install</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">install<span class="tsd-signature-symbol">(</span>environment<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IEnvironment</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HTMLLinkElement</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/youwol/flux-plotly/blob/e88aad3/src/lib/main.ts#L4">src/lib/main.ts:4</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>environment: <span class="tsd-signature-type">IEnvironment</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HTMLLinkElement</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
 				</section>
 			</section>
 		</div>
@@ -130,30 +130,15 @@
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="auto_generated.html">auto_<wbr>generated</a>
-					</li>
-					<li class="current tsd-kind-module">
-						<a href="lib_main.html">lib/main</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="lib_models.html">lib/models</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="lib_scatter_plot_module.html">lib/scatter-<wbr>plot.module</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="lib_serie_2d_module.html">lib/serie-<wbr>2d.module</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="lib_main.html#pack" class="tsd-kind-icon">pack</a>
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="../classes/lib_scatter_plot_module.modulescatterplot.module.html" class="tsd-kind-icon">Module</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="lib_main.html#install" class="tsd-kind-icon">install</a>
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="../classes/lib_scatter_plot_module.modulescatterplot.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a>
 					</li>
 				</ul>
 			</nav>
