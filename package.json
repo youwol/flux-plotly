@@ -15,21 +15,26 @@
         "build:dev": "yarn autogen && webpack --mode development",
         "build:prod": "yarn autogen && webpack --mode production",
         "test": "jest -c ./jest.config.js --rootDir . -i",
-        "test-coverage": "jest -c ./jest.config.js --rootDir . -i --collect-coverage --collectCoverageFrom=./src/lib/**/*.ts "
+        "test-coverage": "jest -c ./jest.config.js --rootDir . -i --collect-coverage --collectCoverageFrom=./src/lib/**/*.ts ",
+        "publish-npm-public": "yarn build:prod && yarn test-coverage && yarn publish --access public"
     },
     "dependencies": {},
     "peerDependencies": {
+        "@youwol/dataframe": "0.0.x",
         "@youwol/cdn-client": "0.x",
         "@youwol/flux-core": "0.x",
         "@youwol/flux-view": "0.x",
         "lodash": "4.x",
         "reflect-metadata": "0.x",
-        "rxjs": "6.x"
+        "rxjs": "6.x",
+        "plotly.js-gl2d-dist": "2.3.1"
     },
     "devDependencies": {
+        "@youwol/dataframe": "0.0.x",
         "@youwol/cdn-client": "0.x",
         "@youwol/flux-view": "0.x",
         "@youwol/flux-core": "0.x",
+        "plotly.js-gl2d-dist": "2.3.1",
         "reflect-metadata": "0.1.13",
         "@types/jest": "26.0.22",
         "@types/node": "14.14.37",
@@ -55,7 +60,9 @@
         },
         "cdnDependencies": {
             "@youwol/flux-core": "0.x",
-            "@youwol/flux-view": "0.x"
+            "@youwol/dataframe": "0.x",
+            "@youwol/flux-view": "0.x",
+            "plotly.js-gl2d-dist": "2.3.1"
         }
     }
 }

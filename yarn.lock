@@ -3426,6 +3426,11 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
+plotly.js-gl2d-dist@2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/plotly.js-gl2d-dist/-/plotly.js-gl2d-dist-2.3.1.tgz#9d44592f5022f070767a43cf50eb9a28e33b1075"
+  integrity sha512-Mx36OKfs2p2En3nufQs8B/ScmdNJjgjRw5+xDrUrDZ3zZcZzKr9iOPBjpjm4PnU1JQ4r5ih8AUeEX2NW59f+ew==
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
