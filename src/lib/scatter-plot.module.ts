@@ -1,8 +1,8 @@
 
 import { pack } from './main';
-import * as Plotly from 'plotly.js-gl2d-dist'
 import { Property, Flux, ModuleFlux, BuilderView, RenderView, Schema, expectSome, 
     expectInstanceOf, Scene, createEmptyScene, Context } from '@youwol/flux-core'
+import * as Plotly from 'plotly.js'
 
 import { Serie2D } from './models';
 

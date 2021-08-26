@@ -35,7 +35,7 @@ module.exports = {
         '@youwol/cdn-client': '@youwol/cdn-client',
         '@youwol/flux-view': "@youwol/flux-view",
         "@youwol/dataframe": "@youwol/dataframe",
-        "plotly.js-gl2d-dist": "Plotly",
+        "plotly.js": "Plotly",
     }],
     module: {
         rules: [
