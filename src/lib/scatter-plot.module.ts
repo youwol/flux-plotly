@@ -122,7 +122,10 @@ return {
         namespace:      ModuleScatterPlot,
         id:             "ModuleScatterPlot",
         displayName:    "ScatterPlot",
-        description:    "Scatter plot module"
+        description:    "Scatter plot module",
+        resources:{
+            'technical doc': `${pack.urlCDN}/dist/docs/modules/lib_scatter_plot_module.modulescatterplot.html`
+        }
     })
     @BuilderView({
         namespace:      ModuleScatterPlot,
