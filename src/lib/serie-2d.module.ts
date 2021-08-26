@@ -1,10 +1,7 @@
 
 import { pack } from './main';
-import { ReplaySubject } from 'rxjs';
-import { Property, Flux, ModuleFlux, BuilderView, RenderView, Schema, freeContract, Pipe, expectSome, expectSingle, expectInstanceOf, Context, ModuleError } from '@youwol/flux-core'
-import * as Plotly from 'plotly.js-gl2d-dist'
+import { Property, Flux, ModuleFlux, BuilderView, Schema, freeContract, Pipe, Context } from '@youwol/flux-core'
 
-import { DataFrame} from '@youwol/dataframe'
 import { Serie2D } from './models';
 
 let svgIcon = `
