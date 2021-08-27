@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PersistentData | @youwol/flux-plotly</title>
+	<title>DisplayMode | @youwol/flux-plotly</title>
 	<meta name="description" content="Documentation for @youwol/flux-plotly">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,72 +55,75 @@
 					<a href="../modules.html">@youwol/flux-plotly</a>
 				</li>
 				<li>
-					<a href="../modules/lib_scatter_plot_module.html">lib/scatter-plot.module</a>
+					<a href="../modules/lib_trace_2d_module.html">lib/trace-2d.module</a>
 				</li>
 				<li>
-					<a href="../modules/lib_scatter_plot_module.modulescatterplot.html">ModuleScatterPlot</a>
+					<a href="../modules/lib_trace_2d_module.moduletrace2d.html">ModuleTrace2D</a>
 				</li>
 				<li>
-					<a href="lib_scatter_plot_module.modulescatterplot.persistentdata.html">PersistentData</a>
+					<a href="lib_trace_2d_module.moduletrace2d.displaymode.html">DisplayMode</a>
 				</li>
 			</ul>
-			<h1>Class PersistentData</h1>
+			<h1>Enumeration DisplayMode</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">PersistentData</span>
-					</li>
-				</ul>
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The display mode that can be used in plotly</p>
+					</div>
+				</div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="lib_scatter_plot_module.modulescatterplot.persistentdata.html#layoutoptions" class="tsd-kind-icon">layout<wbr>Options</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="lib_trace_2d_module.moduletrace2d.displaymode.html#lines" class="tsd-kind-icon">Lines</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="lib_trace_2d_module.moduletrace2d.displaymode.html#markers" class="tsd-kind-icon">Markers</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="lib_trace_2d_module.moduletrace2d.displaymode.html#markerslines" class="tsd-kind-icon">Markers<wbr>Lines</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="layoutoptions" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> layout<wbr>Options</h3>
-					<div class="tsd-signature tsd-kind-icon">layout<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> = ...</span></div>
+				<h2>Enumeration members</h2>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="lines" class="tsd-anchor"></a>
+					<h3>Lines</h3>
+					<div class="tsd-signature tsd-kind-icon">Lines<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;lines&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/youwol/flux-plotly/blob/b651228/src/lib/scatter-plot.module.ts#L87">src/lib/scatter-plot.module.ts:87</a></li>
+							<li>Defined in src/lib/trace-2d.module.ts:78</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>json object that defines the layout.</p>
-						</div>
-						<p>For instance:</p>
-						<pre><code class="language-js"><span style="color: #AF00DB">return</span><span style="color: #000000"> {</span>
-<span style="color: #000000">    </span><span style="color: #001080">title:</span><span style="color: #A31515">&#039;Some title&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">font:</span><span style="color: #000000">{</span>
-<span style="color: #000000">        </span><span style="color: #001080">family:</span><span style="color: #A31515">&#039;Arial&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">    },</span>
-<span style="color: #000000">    </span><span style="color: #001080">margin:</span><span style="color: #000000"> {</span>
-<span style="color: #000000">        </span><span style="color: #001080">t:</span><span style="color: #A31515">&#039;20&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">b:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;25&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">    }</span>
-<span style="color: #000000">}</span>
-</code></pre>
-						<p>See all available options (here)[<a href="https://plotly.com/javascript/reference/layout/%5D">https://plotly.com/javascript/reference/layout/]</a></p>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="markers" class="tsd-anchor"></a>
+					<h3>Markers</h3>
+					<div class="tsd-signature tsd-kind-icon">Markers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;markers&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in src/lib/trace-2d.module.ts:77</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="markerslines" class="tsd-anchor"></a>
+					<h3>Markers<wbr>Lines</h3>
+					<div class="tsd-signature tsd-kind-icon">Markers<wbr>Lines<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;lines+markers&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in src/lib/trace-2d.module.ts:79</li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -134,21 +137,30 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-namespace">
-						<a href="lib_scatter_plot_module.modulescatterplot.module.html" class="tsd-kind-icon">Module</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-namespace">
-						<a href="lib_scatter_plot_module.modulescatterplot.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a>
+					<li class="current tsd-kind-enum tsd-parent-kind-namespace">
+						<a href="lib_trace_2d_module.moduletrace2d.displaymode.html" class="tsd-kind-icon">Display<wbr>Mode</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="lib_scatter_plot_module.modulescatterplot.persistentdata.html#layoutoptions" class="tsd-kind-icon">layout<wbr>Options</a>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="lib_trace_2d_module.moduletrace2d.displaymode.html#lines" class="tsd-kind-icon">Lines</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="lib_trace_2d_module.moduletrace2d.displaymode.html#markers" class="tsd-kind-icon">Markers</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="lib_trace_2d_module.moduletrace2d.displaymode.html#markerslines" class="tsd-kind-icon">Markers<wbr>Lines</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="../classes/lib_trace_2d_module.moduletrace2d.module.html" class="tsd-kind-icon">Module</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="../classes/lib_trace_2d_module.moduletrace2d.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -165,7 +177,6 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 		</div>
 	</div>

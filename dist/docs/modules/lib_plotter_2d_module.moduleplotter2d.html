@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>lib/scatter-plot.module | @youwol/flux-plotly</title>
+	<title>ModulePlotter2D | @youwol/flux-plotly</title>
 	<meta name="description" content="Documentation for @youwol/flux-plotly">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,24 +55,69 @@
 					<a href="../modules.html">@youwol/flux-plotly</a>
 				</li>
 				<li>
-					<a href="lib_scatter_plot_module.html">lib/scatter-plot.module</a>
+					<a href="lib_plotter_2d_module.html">lib/plotter-2d.module</a>
+				</li>
+				<li>
+					<a href="lib_plotter_2d_module.moduleplotter2d.html">ModulePlotter2D</a>
 				</li>
 			</ul>
-			<h1>Module lib/scatter-plot.module</h1>
+			<h1>Namespace ModulePlotter2D</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<a href="#presentation" id="presentation" style="color: inherit; text-decoration: none;">
+							<h2>Presentation</h2>
+						</a>
+					</div>
+					<p>The scatter plot module is a <em>scene</em> for <a href="lib_trace_2d_module.moduletrace2d.html">2d traces</a>:
+					it&#39;s purpose is to display 2d traces that reach the input of the module over time.</p>
+					<a href="#typical-usage" id="typical-usage" style="color: inherit; text-decoration: none;">
+						<h2>Typical usage</h2>
+					</a>
+					<p>Provide 2D traces constructed from the <a href="lib_trace_2d_module.moduletrace2d.html">2d trace module</a> to the input of the module.</p>
+					<blockquote>
+						<p>👾 2D traces have a <strong>traceId</strong> property defined in the configuration.
+							t is an important field to consider when multiple traces will be displayed
+						in a viewer: only the latest object received for a particular <strong>traceId</strong> is displayed.</p>
+					</blockquote>
+					<p>The property <strong>layoutOptions</strong> of the configuration allows to define layout, titles, margins, etc,
+					see <a href="../classes/lib_plotter_2d_module.moduleplotter2d.persistentdata.html">ModulePlotter2D.PersistentData</a>.</p>
+					<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+						<h2>Example</h2>
+					</a>
+					<p>The following example illustrates a simple use of the module:</p>
+					<iframe
+					title="Simple example"
+					width="100%"
+					height="500px"
+					src="/ui/flux-runner/?id=b6f7ae4b-c106-457c-9de1-2c94aeea5986">
+					</iframe>
+					<p>The underlying workflow can be accessed <a href="/ui/flux-builder/?id=b6f7ae4b-c106-457c-9de1-2c94aeea5986">here</a>.</p>
+					<a href="#resources" id="resources" style="color: inherit; text-decoration: none;">
+						<h2>Resources</h2>
+					</a>
+					<p>Various resources:</p>
+					<ul>
+						<li>   <a href="https://plotly.com/javascript/">plotly</a>: underlying rendering library</li>
+						<li>   <a href="https://plotly.com/javascript/reference/layout/">layout</a>: options available to style the graph&#39;s layout</li>
+					</ul>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Namespaces</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-namespace tsd-parent-kind-module"><a href="lib_scatter_plot_module.modulescatterplot.html" class="tsd-kind-icon">Module<wbr>Scatter<wbr>Plot</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-namespace"><a href="../classes/lib_plotter_2d_module.moduleplotter2d.module.html" class="tsd-kind-icon">Module</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-namespace"><a href="../classes/lib_plotter_2d_module.moduleplotter2d.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a></li>
 							</ul>
 						</section>
 					</div>
@@ -85,25 +130,16 @@
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="auto_generated.html">auto_<wbr>generated</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="lib_main.html">lib/main</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="lib_models.html">lib/models</a>
-					</li>
-					<li class="current tsd-kind-module">
-						<a href="lib_scatter_plot_module.html">lib/scatter-<wbr>plot.module</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="lib_serie_2d_module.html">lib/serie-<wbr>2d.module</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="../classes/lib_plotter_2d_module.moduleplotter2d.module.html" class="tsd-kind-icon">Module</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="../classes/lib_plotter_2d_module.moduleplotter2d.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

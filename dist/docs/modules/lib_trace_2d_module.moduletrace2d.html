@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ModuleScatterPlot | @youwol/flux-plotly</title>
+	<title>ModuleTrace2D | @youwol/flux-plotly</title>
 	<meta name="description" content="Documentation for @youwol/flux-plotly">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">@youwol/flux-plotly</a>
 				</li>
 				<li>
-					<a href="lib_scatter_plot_module.html">lib/scatter-plot.module</a>
+					<a href="lib_trace_2d_module.html">lib/trace-2d.module</a>
 				</li>
 				<li>
-					<a href="lib_scatter_plot_module.modulescatterplot.html">ModuleScatterPlot</a>
+					<a href="lib_trace_2d_module.moduletrace2d.html">ModuleTrace2D</a>
 				</li>
 			</ul>
-			<h1>Namespace ModuleScatterPlot</h1>
+			<h1>Namespace ModuleTrace2D</h1>
 		</div>
 	</div>
 </header>
@@ -75,19 +75,43 @@
 							<h2>Presentation</h2>
 						</a>
 					</div>
-					<p>The scatter plot module is a <em>scene</em> for <a href="lib_serie_2d_module.moduleserie2d.html">2d series</a>:
-					it&#39;s purpose is to display 2d series that reach the input of the module over time.</p>
+					<p>A 2D trace can be displayed in a <a href="lib_plotter_2d_module.moduleplotter2d.html">ModulePlotter2D</a>.
+					It includes the definition of the x and y coordinates as well as styling properties.</p>
 					<a href="#typical-usage" id="typical-usage" style="color: inherit; text-decoration: none;">
 						<h2>Typical usage</h2>
 					</a>
-					<p>Provide 2D series constructed from the <a href="lib_serie_2d_module.moduleserie2d.html">2d serie module</a> to the input of the module.</p>
+					<p>The creation of a 2D trace requires:</p>
+					<ul>
+						<li>some incoming data from which the <strong>x</strong> and <strong>y</strong> point coordinates will be created</li>
+						<li>some styling properties (color, labels, etc) through the module configuration.</li>
+					</ul>
 					<blockquote>
-						<p>👾 2D series have a <strong>serieId</strong> property defined in the configuration.
-							t is an important field to consider when multiple series will be displayed
-						in a viewer: only the latest object received for a particular <strong>serieId</strong> is displayed.</p>
+						<p>👾 The trace has a <strong>traceId</strong> property defined in the configuration.
+							It is an important field to consider when multiple traces will be displayed
+						in a viewer, see <a href="lib_plotter_2d_module.moduleplotter2d.html">scatter plot module documentation</a>.</p>
 					</blockquote>
-					<p>The property <strong>layoutOptions</strong> of the configuration allows to define layout, titles, margins, etc,
-					see <a href="../classes/lib_scatter_plot_module.modulescatterplot.persistentdata.html">ModuleScatterPlot.PersistentData</a>.</p>
+					<a href="#extracting-coordinates-from-incoming-data" id="extracting-coordinates-from-incoming-data" style="color: inherit; text-decoration: none;">
+						<h3>Extracting coordinates from incoming data</h3>
+					</a>
+					<p>The conversion between the data part of the incoming message and the coordinates of the 2D trace is achieved using
+						the configuration&#39;s <strong>coordinates</strong> property.
+						It defines a function that take in argument the data part of the incoming message and return an
+					object with <strong>x</strong> and <strong>y</strong> properties: the list of abscises and coordinates of the points.</p>
+					<p>For instance when the incoming data is a dataframe with at least 2 columns <strong>A</strong> and <strong>B</strong>:</p>
+					<pre><code class="language-js"><span style="color: #AF00DB">return</span><span style="color: #000000"> (</span><span style="color: #001080">data</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> { </span>
+<span style="color: #000000">        </span><span style="color: #001080">x:</span><span style="color: #000000"> </span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">traces</span><span style="color: #000000">.</span><span style="color: #0070C1">A</span><span style="color: #000000">,  </span><span style="color: #008000">// assume the column A exists in the dataframe</span>
+<span style="color: #000000">        </span><span style="color: #001080">y:</span><span style="color: #000000"> </span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">traces</span><span style="color: #000000">.</span><span style="color: #0070C1">B</span><span style="color: #000000">   </span><span style="color: #008000">// assume the column B exists in the dataframe</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">} </span>
+</code></pre>
+					<a href="#styling" id="styling" style="color: inherit; text-decoration: none;">
+						<h3>Styling</h3>
+					</a>
+					<p>Some styling properties are directly exposed through the module&#39;s configuration (e.g. <strong>mode</strong>),
+						while others can be provided as a json data-structure using the <strong>extraOptions</strong> field of the
+					configuration.</p>
+					<p>More details can be found <a href="../classes/lib_trace_2d_module.moduletrace2d.persistentdata.html">here</a></p>
 					<a href="#example" id="example" style="color: inherit; text-decoration: none;">
 						<h2>Example</h2>
 					</a>
@@ -105,7 +129,7 @@
 					<p>Various resources:</p>
 					<ul>
 						<li>   <a href="https://plotly.com/javascript/">plotly</a>: underlying rendering library</li>
-						<li>   <a href="https://plotly.com/javascript/reference/layout/">layout</a>: options available to style the graph&#39;s layout</li>
+						<li>   <a href="https://plotly.com/javascript/line-charts/">line and scatter plots</a>: options available to style a trace</li>
 					</ul>
 				</div>
 			</section>
@@ -114,10 +138,16 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Enumerations</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum tsd-parent-kind-namespace"><a href="../enums/lib_trace_2d_module.moduletrace2d.displaymode.html" class="tsd-kind-icon">Display<wbr>Mode</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-namespace"><a href="../classes/lib_scatter_plot_module.modulescatterplot.module.html" class="tsd-kind-icon">Module</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-namespace"><a href="../classes/lib_scatter_plot_module.modulescatterplot.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-namespace"><a href="../classes/lib_trace_2d_module.moduletrace2d.module.html" class="tsd-kind-icon">Module</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-namespace"><a href="../classes/lib_trace_2d_module.moduletrace2d.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a></li>
 							</ul>
 						</section>
 					</div>
@@ -134,11 +164,14 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-namespace">
-						<a href="../classes/lib_scatter_plot_module.modulescatterplot.module.html" class="tsd-kind-icon">Module</a>
+					<li class=" tsd-kind-enum tsd-parent-kind-namespace">
+						<a href="../enums/lib_trace_2d_module.moduletrace2d.displaymode.html" class="tsd-kind-icon">Display<wbr>Mode</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
-						<a href="../classes/lib_scatter_plot_module.modulescatterplot.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a>
+						<a href="../classes/lib_trace_2d_module.moduletrace2d.module.html" class="tsd-kind-icon">Module</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="../classes/lib_trace_2d_module.moduletrace2d.persistentdata.html" class="tsd-kind-icon">Persistent<wbr>Data</a>
 					</li>
 				</ul>
 			</nav>
