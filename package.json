@@ -1,6 +1,6 @@
 {
     "name": "@youwol/flux-plotly",
-    "version": "0.0.1-next",
+    "version": "0.0.2",
     "description": "Collection of modules to draw plots using plotly.js library",
     "author": "",
     "keywords": [
