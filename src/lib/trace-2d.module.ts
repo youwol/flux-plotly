@@ -1,8 +1,8 @@
 
 import { pack } from './main';
 import { Property, Flux, ModuleFlux, BuilderView, Schema, freeContract, Pipe, Context } from '@youwol/flux-core'
-
-import { Serie2D } from './models';
+import {Serie} from '@youwol/dataframe'
+import { Trace2D } from './models';
 
 let svgIcon = `
 <polygon points="427.377,308.65 362.722,308.65 362.722,243.994 365.722,243.994 365.722,305.65 427.377,305.65    "/><polygon points="443.264,307.15 420.878,298.003 426.189,307.15 420.878,316.295     "/><polygon points="364.222,228.108 373.369,250.494 364.222,245.182 355.077,250.494     "/>
@@ -11,22 +11,22 @@ let svgIcon = `
 /**
 ## Presentation
 
-A 2D serie can be displayed in a [[ModuleScatterPlot]].
+A 2D trace can be displayed in a [[ModulePlotter2D]].
 It includes the definition of the x and y coordinates as well as styling properties.
 
 ## Typical usage
 
-The creation of a 2D serie requires:
+The creation of a 2D trace requires:
     - some incoming data from which the **x** and **y** point coordinates will be created
     - some styling properties (color, labels, etc) through the module configuration.
 
-> 👾 The serie has a **serieId** property defined in the configuration.
-> It is an important field to consider when multiple series will be displayed
-> in a viewer, see [[ModuleScatterPlot| scatter plot module documentation]].
+> 👾 The trace has a **traceId** property defined in the configuration.
+> It is an important field to consider when multiple traces will be displayed
+> in a viewer, see [[ModulePlotter2D| scatter plot module documentation]].
 
 ### Extracting coordinates from incoming data
 
-The conversion between the data part of the incoming message and the coordinates of the 2D serie is achieved using 
+The conversion between the data part of the incoming message and the coordinates of the 2D trace is achieved using 
 the configuration's **coordinates** property. 
 It defines a function that take in argument the data part of the incoming message and return an
 object with **x** and **y** properties: the list of abscises and coordinates of the points.
@@ -35,8 +35,8 @@ For instance when the incoming data is a dataframe with at least 2 columns **A**
 * ```js
          * return (data) => {
          *     return { 
-         *         x: data.series.A,  // assume the column A exists in the dataframe
-         *         y: data.series.B   // assume the column B exists in the dataframe
+         *         x: data.traces.A,  // assume the column A exists in the dataframe
+         *         y: data.traces.B   // assume the column B exists in the dataframe
          *     }
          * } 
          * ``` 
@@ -47,7 +47,7 @@ Some styling properties are directly exposed through the module's configuration 
 while others can be provided as a json data-structure using the **extraOptions** field of the 
 configuration.
 
-More details can be found [[ModuleSerie2D.PersistentData|here]]
+More details can be found [[ModuleTrace2D.PersistentData|here]]
 
 ## Example
 
@@ -65,9 +65,9 @@ The underlying workflow can be accessed [here](/ui/flux-builder/?id=b6f7ae4b-c10
 
  Various resources:
  -    [plotly](https://plotly.com/javascript/): underlying rendering library 
- -    [line and scatter plots](https://plotly.com/javascript/line-charts/): options available to style a serie
+ -    [line and scatter plots](https://plotly.com/javascript/line-charts/): options available to style a trace
  */
-export namespace ModuleSerie2D {
+export namespace ModuleTrace2D {
 
 
     /**
@@ -83,12 +83,10 @@ export namespace ModuleSerie2D {
 return  (data) => {
     return { 
         x: [-1,1], 
-        y: [1,-1]
+        y: [1,-1],
+        mode: 'markers'
     }
 }   
-`
-    let extraOptions =  `
-return  {}  
 `
     /**
      * Configuration of the module
@@ -99,22 +97,22 @@ return  {}
     export class PersistentData {
 
         /**
-         * Id of the serie.
-         * When included in a scene (e.g. a ScatterPlot module), only the latest
-         * serie included for a particular 'serieId' is displayed.
+         * Id of the trace.
+         * When included in a scene (e.g. a Plotter2D module), only the latest
+         * trace included for a particular 'traceId' is displayed.
          */
         @Property({
-            description: "id of the serie"
+            description: "id of the trace"
         })
-        readonly serieId: string = "serie2D"
+        readonly traceId: string = "trace2D"
 
         /**
-         * Display name of the serie
+         * Display name of the trace
          */
         @Property({
-            description: "display name of the serie"
+            description: "display name of the trace"
         })
-        readonly serieName: string = "serie2D"
+        readonly traceName: string = "trace2D"
 
         /**
          * A function that maps the incoming data to the coordinates (x,y).
@@ -125,8 +123,8 @@ return  {}
          * ```js
          * return (data) => {
          *     return { 
-         *         x: data.series.A,  // assume the column A exists in the dataframe
-         *         y: data.series.B   // assume the column B exists in the dataframe
+         *         x: data.traces.A,  // assume the column A exists in the dataframe
+         *         y: data.traces.B   // assume the column B exists in the dataframe
          *     }
          * } 
          * ``` 
@@ -135,71 +133,27 @@ return  {}
             description: "Define the coordinates (x,y) from incoming data",
             type: 'code'
         })
-        readonly coordinates: string  | ((data:any) => {x:ArrayLike<number>, y:ArrayLike<number>} )= defaultCoordinates
+        readonly definition: string  | ((data:any) => any )= defaultCoordinates
 
         /**
          * 
          * @ignore
          */
-        getCoordinates(data: any){
-            return this.coordinates instanceof Function
-                ? this.coordinates(data) 
-                : new Function(this.coordinates)()(data)
+        getDefinition(data: any){
+            return this.definition instanceof Function
+                ? this.definition(data) 
+                : new Function(this.definition)()(data)
         }
-        /**
-         * Define the display mode, either:
-         *     * markers
-         *     * lines+markers
-         *     * lines
-         */
-         @Property({
-            description: "Define the display mode ",
-            enum: Object.values(DisplayMode)
-        })
-        readonly mode: string = DisplayMode.Markers
-
-        /**
-         * Allow to provide extra rendering option not explicitly exposed here. 
-         * See https://plotly.com/javascript/line-charts/
-         * 
-         * Example:
-         * ```js
-         * return {
-         *    text: ['Australia', 'Japan', 'South Korea', 'Malaysia', 'China', 'Indonesia', 'Philippines', 'India'],
-         *    marker: {
-         *        color: 'rgb(234, 153, 153)',
-         *        size: 12
-         *    }
-         * }
-         * ```
-         * The properties defined here have the least priority compared to the ones explicitly provided
-         * in the configuration (e.g. name, x, y, ...). 
-         */
-        @Property({
-            description: "rendering options",
-            type: 'code'
-        })
-        readonly extraOptions: string | any = extraOptions
-
-        /**
-         * 
-         * @ignore
-         */
-        getExtraOptions() : ({name, xSerie, ySerie,dataframe}) => any {
-            return this.extraOptions instanceof Function
-                ? this.extraOptions 
-                : new Function(this.extraOptions)()
-        }
+        
 
         /**
          * 
          * @ignore
          */
         constructor(params : { 
-            serieId?: string,
-            serieName?: string,
-            coordinates?: string, 
-            extraOptions?: string,
+            traceId?: string,
+            traceName?: string,
+            definition?: string, 
         } = {}) {
             Object.assign(this, params)
         }
@@ -208,49 +162,49 @@ return  {}
 
     @Flux({
         pack:           pack,
-        namespace:      ModuleSerie2D,
-        id:             "Serie2D",
-        displayName:    "Serie 2D",
-        description:    "A 2D serie",
+        namespace:      ModuleTrace2D,
+        id:             "Trace2D",
+        displayName:    "Trace 2D",
+        description:    "A 2D trace",
         resources: {
-            'technical doc': `${pack.urlCDN}/dist/docs/modules/lib_serie_2d_module.moduleserie2d.html`
+            'technical doc': `${pack.urlCDN}/dist/docs/modules/lib_trace_2d_module.moduletrace2d.html`
         }
     })
     @BuilderView({
-        namespace:      ModuleSerie2D,
+        namespace:      ModuleTrace2D,
         icon:           svgIcon
     })
     export class Module extends ModuleFlux {
 
-        output$ : Pipe<Serie2D> 
+        output$ : Pipe<Trace2D> 
 
         constructor(params){ 
             super(params)    
                     
             this.addInput({
                 contract: freeContract(),
-                onTriggered: ({data, configuration, context}) => this.createSerie(data, configuration, context) 
+                onTriggered: ({data, configuration, context}) => this.createTrace(data, configuration, context) 
             })
             this.output$ = this.addOutput()
         }
 
-        createSerie( data : any, config : PersistentData, context: Context ) {
+        createTrace( data : any, config : PersistentData, context: Context ) {
 
 
-            let coordinates = config.getCoordinates(data)
-            let options = {
-                name : config.serieName,
-                mode : config.mode
+            let definition = config.getDefinition(data)
+            if(definition.x && definition.x instanceof Serie){
+                definition.x = definition.x.array
             }
-            let extraOptions = config.getExtraOptions()
+            if(definition.y && definition.y instanceof Serie){
+                definition.y = definition.y.array
+            }
             
             let trace = {
-                ...extraOptions,
-                ...coordinates,
-                ...options
+                ...definition,
+                ...{name : config.traceName}
             }
 
-            this.output$.next({data:new Serie2D(config.serieId, config.serieName, trace), context})  
+            this.output$.next({data:new Trace2D(config.traceId, config.traceName, trace), context})  
         }
     }
 }
